@@ -1,0 +1,108 @@
+{
+  "entities": {
+    "tour": {
+      "title": "Tour Program",
+      "description": "Industrial tour program details",
+      "type": "object",
+      "properties": {
+        "title_kr": { "type": "string", "description": "Title in Korean" },
+        "title_en": { "type": "string", "description": "Title in English" },
+        "description_kr": { "type": "string", "description": "Description in Korean" },
+        "description_en": { "type": "string", "description": "Description in English" },
+        "category": { "type": "string", "enum": ["Semiconductor", "Automobile", "Smart Factory", "Energy", "Cosmetics"] },
+        "image": { "type": "string", "format": "uri" },
+        "price": { "type": "number" },
+        "duration": { "type": "string" },
+        "featured": { "type": "boolean" }
+      },
+      "required": ["title_kr", "title_en", "category"]
+    },
+    "blogPost": {
+      "title": "Blog Post",
+      "description": "Industry insights and news",
+      "type": "object",
+      "properties": {
+        "title_kr": { "type": "string" },
+        "title_en": { "type": "string" },
+        "content_kr": { "type": "string" },
+        "content_en": { "type": "string" },
+        "image": { "type": "string", "format": "uri" },
+        "date": { "type": "string", "format": "date-time" }
+      },
+      "required": ["title_kr", "title_en"]
+    },
+    "settings": {
+      "title": "Site Settings",
+      "description": "Global configuration",
+      "type": "object",
+      "properties": {
+        "siteTitle": { "type": "string" },
+        "primaryColor": { "type": "string" },
+        "socialLinks": {
+          "type": "object",
+          "properties": {
+            "linkedin": { "type": "string" },
+            "instagram": { "type": "string" },
+            "facebook": { "type": "string" }
+          }
+        }
+      }
+    },
+    "application": {
+      "title": "Tour Application",
+      "description": "Application for a tour program",
+      "type": "object",
+      "properties": {
+        "tourId": { "type": "string" },
+        "tourTitle": { "type": "string" },
+        "companyName": { "type": "string" },
+        "visitDate": { "type": "string" },
+        "visitorCount": { "type": "number" },
+        "contact": { "type": "string" },
+        "manager": { "type": "string" },
+        "email": { "type": "string" },
+        "message": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["companyName", "visitDate", "visitorCount", "contact", "manager", "email"]
+    },
+    "inquiry": {
+      "title": "Inquiry",
+      "description": "Board-style inquiry",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "author": { "type": "string" },
+        "password": { "type": "string" },
+        "isPrivate": { "type": "boolean" },
+        "createdAt": { "type": "string" },
+        "status": { "type": "string", "enum": ["pending", "answered"] },
+        "answer": { "type": "string" }
+      },
+      "required": ["title", "content", "author", "password"]
+    }
+  },
+  "firestore": {
+    "tours": {
+      "schema": "tour",
+      "description": "Collection of industrial tour programs"
+    },
+    "blogPosts": {
+      "schema": "blogPost",
+      "description": "Collection of blog posts"
+    },
+    "settings": {
+      "schema": "settings",
+      "description": "Global site settings document"
+    },
+    "applications": {
+      "schema": "application",
+      "description": "Tour program applications"
+    },
+    "inquiries": {
+      "schema": "inquiry",
+      "description": "Board-style inquiries"
+    }
+  }
+}
