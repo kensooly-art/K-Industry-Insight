@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { SAMPLE_TOURS } from "../constants";
+import { INITIAL_PARTNERS, SAMPLE_TOURS } from "../constants";
 import { Tour, Application, Inquiry, Partner } from "../types";
 import { Plus, Edit2, Trash2, Save, X, LayoutDashboard, Settings, FileText, LogOut, LogIn, ShieldCheck, Inbox, MessageSquare, CheckCircle2, Lock, Send, Building2, Globe, MapPin, Briefcase } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
@@ -16,7 +16,7 @@ export function AdminDashboard() {
   const [isEditing, setIsEditing] = useState<string | null>(null);
   const [editForm, setEditForm] = useState<any>({});
   const [activeTab, setActiveTab] = useState<"tours" | "applications" | "inquiries" | "partners" | "settings">("tours");
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<any | null>(null);
   const [loading, setLoading] = useState(true);
   const [loginForm, setLoginForm] = useState({ id: "", password: "" });
   const [loginError, setLoginError] = useState("");
@@ -24,6 +24,14 @@ export function AdminDashboard() {
   const [answerText, setAnswerText] = useState("");
 
   useEffect(() => {
+    // Check if there is an active custom admin session
+    const customSession = sessionStorage.getItem("custom_admin_session");
+    if (customSession) {
+      setUser(JSON.parse(customSession));
+      setLoading(false);
+      return;
+    }
+
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
@@ -55,7 +63,8 @@ export function AdminDashboard() {
     // Partners
     const partnersRef = collection(db, "partners");
     const partnersUnsubscribe = onSnapshot(query(partnersRef, orderBy("createdAt", "desc")), (snapshot) => {
-      setPartners(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })) as Partner[]);
+      const dbPartners = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })) as Partner[];
+      setPartners(dbPartners.length > 0 ? dbPartners : INITIAL_PARTNERS);
     });
 
     return () => {
@@ -69,10 +78,25 @@ export function AdminDashboard() {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoginError("");
+
+    if (loginForm.id.trim() === "k-indstry" && loginForm.password === "123456789") {
+      const customUser = {
+        email: "k-indstry",
+        displayName: "k-indstry",
+        uid: "admin-k-indstry"
+      };
+      sessionStorage.setItem("custom_admin_session", JSON.stringify(customUser));
+      setUser(customUser);
+      return;
+    }
     
     try {
       const { signInWithEmailAndPassword } = await import("firebase/auth");
-      await signInWithEmailAndPassword(auth, loginForm.id, loginForm.password);
+      let emailVal = loginForm.id;
+      if (!emailVal.includes("@")) {
+        emailVal = `${emailVal}@k-industrytour.com`;
+      }
+      await signInWithEmailAndPassword(auth, emailVal, loginForm.password);
     } catch (error: any) {
       console.error("Login failed:", error);
       setLoginError("아이디 또는 비밀번호가 일치하지 않습니다.");
@@ -81,7 +105,9 @@ export function AdminDashboard() {
 
   const handleLogout = async () => {
     try {
+      sessionStorage.removeItem("custom_admin_session");
       await signOut(auth);
+      setUser(null);
     } catch (error) {
       console.error("Logout failed:", error);
     }

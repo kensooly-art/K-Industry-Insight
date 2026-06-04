@@ -5,6 +5,7 @@ import { Target, History, Users, Award, CheckCircle2, Building2, GraduationCap, 
 import { db } from "../firebase";
 import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
 import { Partner } from "../types";
+import { INITIAL_PARTNERS } from "../constants";
 
 export function About() {
   const { t } = useLanguage();
@@ -13,7 +14,8 @@ export function About() {
   useEffect(() => {
     const partnersRef = collection(db, "partners");
     const unsubscribe = onSnapshot(query(partnersRef, orderBy("createdAt", "desc")), (snapshot) => {
-      setPartners(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })) as Partner[]);
+      const dbPartners = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })) as Partner[];
+      setPartners(dbPartners.length > 0 ? dbPartners : INITIAL_PARTNERS);
     });
     return () => unsubscribe();
   }, []);

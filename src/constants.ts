@@ -1,4 +1,4 @@
-import { Tour } from "./types";
+import { Tour, Partner } from "./types";
 
 export const SAMPLE_TOURS: Tour[] = [
   {
@@ -73,6 +73,15 @@ export const SAMPLE_TOURS: Tour[] = [
     duration: "1 Day",
     featured: true
   }
+];
+
+export const INITIAL_PARTNERS: Partner[] = [
+  { id: "p1", name: "(주)에스이에프코리아", location: "천안", industry: "친환경 특수무기질도료", type: "company", createdAt: new Date().toISOString() },
+  { id: "p2", name: "(주)드림텍", location: "천안", industry: "자동차 부품", type: "company", createdAt: new Date().toISOString() },
+  { id: "p3", name: "건국대학교", location: "서울", industry: "종합대학", type: "school", createdAt: new Date().toISOString() },
+  { id: "p4", name: "대전과학기술대학교", location: "대전", industry: "기술대학", type: "school", createdAt: new Date().toISOString() },
+  { id: "p5", name: "강동 경희대학교병원", location: "서울", industry: "종합병원", type: "medical", createdAt: new Date().toISOString() },
+  { id: "p6", name: "일산 동국대학교병원", location: "경기", industry: "종합병원", type: "medical", createdAt: new Date().toISOString() }
 ];
 
 export const TRANSLATIONS = {
