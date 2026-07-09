@@ -1,11 +1,13 @@
-export type Language = "KR" | "EN";
+export type Language = "KR" | "EN" | "CN";
 
 export interface Tour {
   id: string;
   title_kr: string;
   title_en: string;
+  title_cn?: string;
   description_kr: string;
   description_en: string;
+  description_cn?: string;
   category: "Semiconductor" | "Automobile" | "Smart Factory" | "Energy" | "Cosmetics" | "Education" | "Medical";
   image: string;
   price: number;

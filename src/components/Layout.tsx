@@ -50,13 +50,33 @@ export function Header() {
 
           {/* Actions */}
           <div className="flex items-center space-x-4">
+            {/* Desktop Language Selector */}
+            <div className="hidden sm:flex items-center space-x-1 bg-white/5 border border-white/10 rounded-lg p-0.5">
+              {(["KR", "EN", "CN"] as const).map((lang) => (
+                <button
+                  key={lang}
+                  onClick={() => setLanguage(lang)}
+                  className={cn(
+                    "text-xs font-semibold px-2 py-1 rounded transition-colors cursor-pointer",
+                    language === lang
+                      ? "bg-[#007AFF] text-white"
+                      : "text-gray-400 hover:text-white hover:bg-white/5"
+                  )}
+                >
+                  {lang === "KR" ? "KO" : lang === "EN" ? "EN" : "ZH"}
+                </button>
+              ))}
+            </div>
+
+            {/* Mobile Cycling Language Button */}
             <button
-              onClick={() => setLanguage(language === "KR" ? "EN" : "KR")}
-              className="flex items-center space-x-1 text-sm font-medium text-gray-300 hover:text-white transition-colors"
+              onClick={() => setLanguage(language === "KR" ? "EN" : language === "EN" ? "CN" : "KR")}
+              className="sm:hidden flex items-center space-x-1 text-sm font-medium text-gray-300 hover:text-white transition-colors bg-white/5 px-2.5 py-1.5 rounded-lg border border-white/10 cursor-pointer"
             >
               <Globe className="w-4 h-4" />
-              <span>{language}</span>
+              <span>{language === "KR" ? "KO" : language === "EN" ? "EN" : "ZH"}</span>
             </button>
+
             <button
               className="md:hidden text-gray-300"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -92,6 +112,33 @@ export function Header() {
                   {item.name}
                 </Link>
               ))}
+
+              {/* Mobile Drawer Language Row */}
+              <div className="flex flex-col space-y-3 px-3 py-4 mt-4 border-t border-white/10">
+                <div className="flex items-center space-x-2 text-sm font-medium text-gray-300">
+                  <Globe className="w-4 h-4 text-gray-400" />
+                  <span>Language / 语言 / 언어</span>
+                </div>
+                <div className="flex space-x-1 bg-white/5 p-0.5 rounded-lg border border-white/10">
+                  {(["KR", "EN", "CN"] as const).map((lang) => (
+                    <button
+                      key={lang}
+                      onClick={() => {
+                        setLanguage(lang);
+                        setIsMenuOpen(false);
+                      }}
+                      className={cn(
+                        "flex-1 text-xs font-semibold py-2 rounded transition-colors text-center cursor-pointer",
+                        language === lang
+                          ? "bg-[#007AFF] text-white"
+                          : "text-gray-400 hover:text-white hover:bg-white/5"
+                      )}
+                    >
+                      {lang === "KR" ? "한국어" : lang === "EN" ? "English" : "中文"}
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
           </motion.div>
         )}

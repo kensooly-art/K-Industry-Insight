@@ -10,8 +10,8 @@ interface TourCardProps {
 }
 
 export const TourCard: React.FC<TourCardProps> = ({ tour, language }) => {
-  const title = language === "KR" ? tour.title_kr : tour.title_en;
-  const description = language === "KR" ? tour.description_kr : tour.description_en;
+  const title = language === "KR" ? tour.title_kr : language === "CN" ? tour.title_cn || tour.title_en : tour.title_en;
+  const description = language === "KR" ? tour.description_kr : language === "CN" ? tour.description_cn || tour.description_en : tour.description_en;
 
   return (
     <motion.div

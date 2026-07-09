@@ -8,7 +8,7 @@ import { Partner } from "../types";
 import { INITIAL_PARTNERS } from "../constants";
 
 export function About() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [partners, setPartners] = useState<Partner[]>([]);
 
   useEffect(() => {
@@ -63,9 +63,9 @@ export function About() {
         {/* Category Cards with Counts */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {[
-            { id: 'company', icon: 'Building2', title: t.language === "KR" ? "기업" : "Companies", color: "text-blue-400" },
-            { id: 'school', icon: 'GraduationCap', title: t.language === "KR" ? "학교" : "Schools", color: "text-green-400" },
-            { id: 'medical', icon: 'Stethoscope', title: t.language === "KR" ? "의료기관" : "Medical", color: "text-purple-400" }
+            { id: 'company', icon: 'Building2', title: language === "KR" ? "기업" : language === "CN" ? "企业" : "Companies", color: "text-blue-400" },
+            { id: 'school', icon: 'GraduationCap', title: language === "KR" ? "학교" : language === "CN" ? "学校" : "Schools", color: "text-green-400" },
+            { id: 'medical', icon: 'Stethoscope', title: language === "KR" ? "의료기관" : language === "CN" ? "医疗机构" : "Medical", color: "text-purple-400" }
           ].map((cat, idx) => {
             const count = partners.filter(p => p.type === cat.id).length;
             return (
@@ -80,7 +80,7 @@ export function About() {
                 {getIcon(cat.icon)}
                 <h3 className="text-2xl font-bold mb-2 group-hover:text-[#007AFF] transition-colors">{cat.title}</h3>
                 <div className={`text-3xl font-bold ${cat.color} mb-2`}>{count}</div>
-                <p className="text-gray-500 text-sm uppercase tracking-widest">{t.language === "KR" ? "참여 기관" : "Entities"}</p>
+                <p className="text-gray-500 text-sm uppercase tracking-widest">{language === "KR" ? "참여 기관" : language === "CN" ? "参与机构" : "Entities"}</p>
               </motion.div>
             );
           })}
@@ -90,9 +90,9 @@ export function About() {
         {partners.length > 0 && (
           <div className="space-y-12">
             {[
-              { id: 'company', title: t.language === "KR" ? "기업 참여 현황" : "Company Participation", icon: <Building2 className="w-6 h-6" /> },
-              { id: 'school', title: t.language === "KR" ? "학교 참여 현황" : "School Participation", icon: <GraduationCap className="w-6 h-6" /> },
-              { id: 'medical', title: t.language === "KR" ? "의료기관 참여 현황" : "Medical Participation", icon: <Stethoscope className="w-6 h-6" /> }
+              { id: 'company', title: language === "KR" ? "기업 참여 현황" : language === "CN" ? "企业参与现状" : "Company Participation", icon: <Building2 className="w-6 h-6" /> },
+              { id: 'school', title: language === "KR" ? "학교 참여 현황" : language === "CN" ? "学校参与现状" : "School Participation", icon: <GraduationCap className="w-6 h-6" /> },
+              { id: 'medical', title: language === "KR" ? "의료기관 참여 현황" : language === "CN" ? "医疗机构参与现状" : "Medical Participation", icon: <Stethoscope className="w-6 h-6" /> }
             ].map((section) => {
               const sectionPartners = partners.filter(p => p.type === section.id);
               if (sectionPartners.length === 0) return null;
@@ -105,7 +105,7 @@ export function About() {
                       <h3 className="text-xl font-bold">{section.title}</h3>
                     </div>
                     <span className="px-3 py-1 bg-[#007AFF]/10 text-[#007AFF] rounded-full text-xs font-bold">
-                      {sectionPartners.length} {t.language === "KR" ? "개소" : "Items"}
+                      {sectionPartners.length} {language === "KR" ? "개소" : language === "CN" ? "家" : "Items"}
                     </span>
                   </div>
                   <div className="p-0">
@@ -113,9 +113,9 @@ export function About() {
                       <table className="w-full text-left border-collapse">
                         <thead>
                           <tr className="border-b border-white/5 text-[10px] uppercase tracking-widest text-gray-500">
-                            <th className="px-6 py-4 font-bold">{t.language === "KR" ? "상호명" : "Name"}</th>
-                            <th className="px-6 py-4 font-bold">{t.language === "KR" ? "분야" : "Industry"}</th>
-                            <th className="px-6 py-4 font-bold">{t.language === "KR" ? "소재지" : "Location"}</th>
+                            <th className="px-6 py-4 font-bold">{language === "KR" ? "상호명" : language === "CN" ? "名称" : "Name"}</th>
+                            <th className="px-6 py-4 font-bold">{language === "KR" ? "분야" : language === "CN" ? "领域" : "Industry"}</th>
+                            <th className="px-6 py-4 font-bold">{language === "KR" ? "소재지" : language === "CN" ? "所在地" : "Location"}</th>
                           </tr>
                         </thead>
                         <tbody className="divide-y divide-white/5">

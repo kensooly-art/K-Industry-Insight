@@ -5,8 +5,10 @@ export const SAMPLE_TOURS: Tour[] = [
     id: "1",
     title_kr: "K-제조산업 투어 (반도체 & 자동차)",
     title_en: "K-Manufacturing Tour (Semiconductor & Automobile)",
+    title_cn: "K-制造产业观光（半导体与汽车）",
     description_kr: "대한민국을 대표하는 반도체와 자동차 산업의 최첨단 제조 공정을 직접 확인하는 프리미엄 투어입니다.",
     description_en: "A premium tour to witness the state-of-the-art manufacturing processes of Korea's leading semiconductor and automobile industries.",
+    description_cn: "亲眼见证代表韩国的半导体和汽车产业最尖端制造流程的高端参观项目。",
     category: "Semiconductor",
     image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200",
     price: 1500,
@@ -17,8 +19,10 @@ export const SAMPLE_TOURS: Tour[] = [
     id: "2",
     title_kr: "인공지능 기반 스마트팩토리 투어",
     title_en: "AI-Powered Smart Factory Tour",
+    title_cn: "基于人工智能的智能工厂参观",
     description_kr: "인공지능과 사물인터넷(IoT)이 결합된 미래형 지능형 공장의 자동화 솔루션을 경험하십시오.",
     description_en: "Experience the automation solutions of future intelligent factories where AI and IoT are integrated.",
+    description_cn: "体验结合了人工智能和物联网（IoT）的未来型智能工厂自动化解决方案。",
     category: "Smart Factory",
     image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=1200",
     price: 1000,
@@ -29,8 +33,10 @@ export const SAMPLE_TOURS: Tour[] = [
     id: "3",
     title_kr: "K-뷰티 화장품 제조 투어",
     title_en: "K-Beauty Cosmetics Manufacturing Tour",
+    title_cn: "K-Beauty 化妆品制造参观",
     description_kr: "글로벌 트렌드를 선도하는 K-뷰티 제품의 탄생 과정과 첨단 R&D 연구 시설을 탐방합니다.",
     description_en: "Explore the birth process of global trend-setting K-Beauty products and advanced R&D research facilities.",
+    description_cn: "探访引领全球趋势的 K-Beauty 产品的诞生过程以及先进的研发（R&D）设施。",
     category: "Cosmetics",
     image: "https://images.unsplash.com/photo-1612817288484-6f916006741a?auto=format&fit=crop&q=80&w=1200",
     price: 900,
@@ -41,8 +47,10 @@ export const SAMPLE_TOURS: Tour[] = [
     id: "4",
     title_kr: "친환경 에너지 및 지속가능 기술 투어",
     title_en: "Eco-Friendly Energy & Sustainable Tech Tour",
+    title_cn: "环保能源与可持续技术参观",
     description_kr: "태양광, 풍력 및 수소 에너지 등 대한민국의 신재생 에너지 기술 현장을 탐방합니다.",
     description_en: "Explore South Korea's renewable energy technology sites, including solar, wind, and hydrogen energy.",
+    description_cn: "探访韩国的太阳能、风能和氢能等新能源与可再生能源技术现场。",
     category: "Energy",
     image: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&q=80&w=1200",
     price: 1100,
@@ -53,8 +61,10 @@ export const SAMPLE_TOURS: Tour[] = [
     id: "5",
     title_kr: "교육기관(초·중·특성화고·대) 혁신 탐방",
     title_en: "Educational Innovation Tour (School & University)",
+    title_cn: "教育机构（中小学、职业高中、大学）创新考察",
     description_kr: "대한민국의 우수한 교육 시스템과 미래 인재 양성을 위한 교육 현장을 직접 체험하십시오.",
     description_en: "Experience South Korea's excellent education system and educational sites for fostering future talent.",
+    description_cn: "亲身体验韩国优秀的教育体系以及培养未来人才的教育现场。",
     category: "Education",
     image: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80&w=1200",
     price: 800,
@@ -65,8 +75,10 @@ export const SAMPLE_TOURS: Tour[] = [
     id: "6",
     title_kr: "첨단 의료 및 병원 방문 투어",
     title_en: "Advanced Medical & Hospital Visit Tour",
+    title_cn: "先进 medical 与医院访问参观",
     description_kr: "세계적인 수준의 의료 기술과 최첨단 병원 시설을 방문하여 스마트 헬스케어를 경험하십시오.",
     description_en: "Visit world-class medical technology and state-of-the-art hospital facilities to experience smart healthcare.",
+    description_cn: "访问世界级水平的医疗技术和最先进的医院设施，体验智慧医疗保健。",
     category: "Medical",
     image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1200",
     price: 1200,
@@ -343,6 +355,136 @@ export const TRANSLATIONS = {
     },
     footer: {
       rights: "© 2026 K-Industry Insight Tour. All rights reserved."
+    }
+  },
+  CN: {
+    nav: {
+      home: "首页",
+      tours: "申请参观",
+      about: "公司介绍",
+      contact: "咨询留言板",
+      admin: "管理员"
+    },
+    hero: {
+      title: "亲身体验韩国工业的心脏",
+      subtitle: "我们邀请您前往充满世界一流技术与创新的最前沿阵地。",
+      cta: "公司介绍"
+    },
+    whyUs: {
+      title: "为什么选择 K-Industry Tour？",
+      expert: "专业协调员",
+      expertDesc: "由在各工业领域拥有专业知识的协调员全程陪同。",
+      exclusive: "专属访问权限",
+      exclusiveDesc: "提供访问不向公众开放的核心设施的宝贵机会。",
+      network: "全球合作网络",
+      networkDesc: "通过与韩国领先企业的紧密合作，为您量身定制最佳项目。"
+    },
+    valueProp: {
+      visitor: {
+        title: "外籍访客",
+        subtitle: "超越单纯观光，探索未来机遇",
+        items: ["行业理解", "就业/留学信息", "商业网络", "投资机会", "技术洞察"],
+        tag: "旅行 + 职业 + 商业"
+      },
+      company: {
+        title: "参与企业",
+        subtitle: "全球营销与人才引进的平台",
+        items: ["全球宣传", "海外人才招聘", "发掘海外买家", "提升品牌形象", "ESG/CSR 活动认可"],
+        tag: "全球营销渠道"
+      },
+      region: {
+        title: "国家与地区",
+        subtitle: "通过工业旅游增强竞争力",
+        items: ["改善制造业形象", "开创工业旅游市场", "活跃地方经济", "吸引外籍长期滞留"],
+        tag: "旅游产业高端化"
+      }
+    },
+    tours: {
+      title: "推荐参观项目"
+    },
+    guide: {
+      title: "项目指南",
+      participation: {
+        title: "参与条件",
+        desc: "欢迎所有对工业考察感兴趣的企业界人士、学生、公共机构团体等申请。（建议最少人数为15人或以上）"
+      },
+      general: {
+        title: "普通项目",
+        desc: "包括参观主要工业设施、学校及听取相关负责人简报的标准路线。（时长：1-2天）"
+      },
+      special: {
+        title: "特别项目",
+        desc: "提供商业配对、技术研讨会、参观研发中心等定制化深度项目。（时长：3天及以上）"
+      }
+    },
+    reviews: {
+      title: "参与者评价",
+      items: [
+        {
+          name: "约翰·史密斯",
+          role: "菲律宾，Global Tech 董事",
+          text: "参观韩国制造企业是一次了解新技术的极佳体验。提供如此深度的参观权限是前所未有的，企业代表的讲解也让人非常满意。"
+        },
+        {
+          name: "菲利普",
+          role: "阿联酋，High Merchandising 首席执行官",
+          text: "这次参观提供了深刻的见解，帮助我们团队理解了智能制造的未来。我非常希望能参观更多这样的创新企业。"
+        },
+        {
+          name: "阮飞",
+          role: "越南，隆特职业学校",
+          text: "这是一次非常宝贵的经历，让我们对技术大学的教学设施和教学方法有了深刻的认识与启发。"
+        }
+      ]
+    },
+    aboutPage: {
+      title: "公司介绍",
+      description: "我们是一家专业策划 and 运营工业参观项目的公司，致力于让您亲身体验韩国领先的制造产业、教育和医疗现场。我们面向海外企业代表、公共机构、教育机构、研究人员和投资者，提供包括工厂参观、学校访问、医院考察等在内的各种定制化工业旅游服务。",
+      description2: "韩国在先进制造、智能工厂、IT/半导体、生物/医疗保健以及教育创新等领域拥有世界一流的竞争力。我们直接连接这些核心产业和机构，帮助参与者深入了解现场技术、运营、文化以及合作机会。",
+      services: {
+        title: "主要服务",
+        items: [
+          { title: "制造产业参观", desc: "体验智能工厂、自动化设备及质量控制系统。" },
+          { title: "教育机构访问", desc: "考察中小学及大学的教育体制与未来教育案例。" },
+          { title: "医院及医疗机构访问", desc: "了解先进医疗系统、医院运营及数字医疗案例。" },
+          { title: "定制化项目策划", desc: "根据行业、目的、时长和预算设计并运营全套行程。" },
+          { title: "专业翻译与讲解", desc: "提供专业翻译及工业专家的现场讲解服务。" }
+        ]
+      },
+      participationEntities: {
+        title: "参与现状",
+        items: [
+          { title: "企业", desc: "引领全球制造与创新技术的骨干企业", icon: "Building2" },
+          { title: "学校", desc: "包括中小学、职业高中及大学在内的教育机构", icon: "GraduationCap" },
+          { title: "医疗机构", desc: "先进的医疗系统及数字医疗服务提供商", icon: "Stethoscope" }
+        ]
+      },
+      mission: {
+        title: "我们的使命",
+        desc: "K-Industry Insight Tour 从 K-Content（韩国文化内容）延伸至 K-Tech（韩国科技），通过直接的现场学习体验连接人与产业，为未来提供洞察与灵感。我们创造超越单纯参观的有意义的工业体验，促进更深层次的理解与合作。"
+      },
+      partners: {
+        title: "我们的合作伙伴",
+        list: ["I&PGE", "KCCT", "Tomo Korea", "Tomo Japan", "US Travel", "Smart Travel"]
+      },
+      team: {
+        title: "工业专业团队",
+        members: [
+          { name: "Youk KenSoo / 陆根洙", role: "CEO", desc: "策划、开发与咨询顾问", image: "/y_ks-edit.png" },
+          { name: "Yang EunJung / 梁恩贞", role: "COO", desc: "业务运营管理总监", image: "/y_ej-edit.png" },
+          { name: "Ryu SunSoo / 柳选手", role: "CTO", desc: "技术与工业项目负责人", image: "/r_ss-edit.png" }
+        ]
+      },
+      stats: [
+        { label: "历史与传承", value: "15+" },
+        { label: "工业/教育合作伙伴", value: "120+" },
+        { label: "年均参观人数", value: "100,000+" },
+        { label: "参与国家", value: "15+" },
+        { label: "客户满意度", value: "9.5+" }
+      ]
+    },
+    footer: {
+      rights: "© 2026 K-Industry Insight Tour. 版权所有。"
     }
   }
 };
